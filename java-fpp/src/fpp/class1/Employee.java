@@ -47,17 +47,16 @@ public class Employee {
 		
 	}
 	public boolean withdraw(AccountType acctType, double amt){
-		if(AccountType.CHECKING==acctType)
-		{
+		
+		switch (acctType) {
+		case CHECKING:
 			return checkingAcct.makeWithdrawal(amt);
-		}
-		else if (AccountType.SAVINGS==acctType)
-		{
-			 return savingsAcct.makeWithdrawal(amt);
-		}
-		else 
-		{
-			return retirementAcct.makeWithdrawal(amt);
+		case SAVINGS:
+			return savingsAcct.makeWithdrawal(amt);			
+		case RETIREMENT:
+			retirementAcct.makeWithdrawal(amt);
+		default:
+			return false;
 		}
 		
 	}
