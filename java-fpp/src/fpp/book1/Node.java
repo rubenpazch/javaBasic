@@ -1,4 +1,4 @@
-@@package book1;
+package fpp.book1;
 
 public class Node {
 	private int Value;

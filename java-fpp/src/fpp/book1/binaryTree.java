@@ -1,6 +1,6 @@
-package book1;
+package fpp.book1;
 
-import lesson10.BinaryNode;
+//import lesson10.BinaryNode;
 
 public class binaryTree {
 
