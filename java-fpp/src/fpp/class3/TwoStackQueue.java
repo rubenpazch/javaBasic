@@ -1,5 +1,5 @@
 package inclassExercise.queue;
-
+//autor
 import java.util.Stack;
 
 public class TwoStackQueue {
