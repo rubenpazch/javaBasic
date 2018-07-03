@@ -15,18 +15,32 @@ public class TwoStackQueue {
 	/** Retrieves and Remove: removes the element at the front/head of the queue. */
 	public String dequeue()  { // throws IllegalStateException {
 		//implement
-		
-		//stack2.push(stack1.pop());  
-		
-//		Pop all the elements from stack1 to stack2.
-		
-//		Simply pop element from stack2 
-		
-//		And then move back all the elements from the second stack2 to the first stack1.
-		
-		return "";
+		String popelement;
+		if(stack1.isEmpty())
+			return "is empty";
+		else {
+			//		Pop all the elements from stack1 to stack2.
+
+			while(!stack1.isEmpty()) {
+				String temp1 = stack1.peek();
+				stack2.push(temp1);
+				stack1.pop();
+			}
+			
+			//		Simply pop element from stack2 
+			popelement = stack2.peek();
+			stack2.pop();
+			
+			//		And then move back all the elements from the second stack2 to the first stack1.
+			while(!stack2.isEmpty()) {
+				String temp2 = stack2.peek();
+				stack1.push(temp2);
+				stack2.pop();
+			}
+		}
+		return popelement;
 	}
-	
+
 	/** Insert: adds an element to the rear/end of the queue. */
 	public void enqueue(String s) { 
 		//implement
@@ -36,19 +50,26 @@ public class TwoStackQueue {
 	public String peek() {
 
 		//implement
-		
-//		Pop all the elements from stack1 to stack2.
-		
-		while(stack1.isEmpty()) {
-		 stack2.push(stack1.pop());	
-		}
-//		Simply pop element from stack2 
-		String temp = stack2.pop();
-//		And then move back all the elements from the second stack2 to the first stack1.
-		while(stack2.isEmpty()) {
-			 stack1.push(stack2.pop());	
+		if(stack1.isEmpty())
+			return "is empty";
+		else {
+			//		Pop all the elements from stack1 to stack2.
+
+			while(!stack1.isEmpty()) {
+				String temp1 = stack1.peek();
+				stack2.push(temp1);
+				stack1.pop();
 			}
-		return temp;
+			//		Simply pop element from stack2 
+			String temp = stack2.peek();
+			//		And then move back all the elements from the second stack2 to the first stack1.
+			while(!stack2.isEmpty()) {
+				String temp2 = stack2.peek();
+				stack1.push(temp2);
+				stack2.pop();
+			}
+			return temp;
+		}
 	}
 	
 	/** Returns a string representation of this stack. The string
@@ -56,19 +77,18 @@ public class TwoStackQueue {
 	 */
 	@Override
 	public String toString() {
-		//implement
-		String temp ;
+		String temp =null;
 		String s = "[";
 		while(!stack1.isEmpty()) {
-			temp= stack1.peek();
+			temp= stack1.peek(); 
 			stack1.pop();
 			s=s+temp+",";
 			stack2.push(temp);			
 		}
 		s=s+"]";	
 		
-		while(!stack2.isEmpty()) {
-			temp= stack2.peek();
+		while(!stack2.isEmpty()) {			
+			temp=stack2.peek(); 
 			stack2.pop();			
 			stack1.push(temp);			
 		}
@@ -96,8 +116,9 @@ public class TwoStackQueue {
 		myQueue.enqueue("Bob");
 		myQueue.enqueue("Harry");
 		System.out.println(myQueue.size()+" " + myQueue);
-		/*myQueue.enqueue("Steve");
+		myQueue.enqueue("Steve");
 		System.out.println(myQueue.size() +" "  + myQueue);
+		System.out.println("peek : " + myQueue.peek());
 		
 		System.out.println("Dequeue Operation : " + myQueue.dequeue());
 		System.out.println("Dequeue Operation : " + myQueue.dequeue());
@@ -110,7 +131,7 @@ public class TwoStackQueue {
 		System.out.println("Peek Operation : " + myQueue.peek());
 		System.out.println(myQueue.size()+" " + myQueue);
 
-*/
+
 		
 	}
 }
