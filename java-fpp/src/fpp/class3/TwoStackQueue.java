@@ -1,4 +1,4 @@
-package inclassExercise.queue;
+package fpp.class3;
 //autor
 import java.util.Stack;
 
@@ -57,17 +57,19 @@ public class TwoStackQueue {
 	@Override
 	public String toString() {
 		//implement
-		String temp =null;
+		String temp ;
 		String s = "[";
-		while(stack1.isEmpty()) {
-			temp= stack1.pop();
+		while(!stack1.isEmpty()) {
+			temp= stack1.peek();
+			stack1.pop();
 			s=s+temp+",";
 			stack2.push(temp);			
 		}
 		s=s+"]";	
 		
-		while(stack2.isEmpty()) {
-			temp= stack2.pop();			
+		while(!stack2.isEmpty()) {
+			temp= stack2.peek();
+			stack2.pop();			
 			stack1.push(temp);			
 		}
 		return s;
@@ -76,7 +78,7 @@ public class TwoStackQueue {
 	/** Returns the number of items in the queue */
 	public int size() {
 		//implement
-		stack1.size();
+		return stack1.size();
 	}
 	
 	/** Returns true if there are no elements in the queue, false otherwise */
@@ -91,10 +93,10 @@ public class TwoStackQueue {
 	public static void main(String[] args) {
 		
 		TwoStackQueue myQueue = new TwoStackQueue();
-		/*myQueue.enqueue("Bob");
+		myQueue.enqueue("Bob");
 		myQueue.enqueue("Harry");
 		System.out.println(myQueue.size()+" " + myQueue);
-		myQueue.enqueue("Steve");
+		/*myQueue.enqueue("Steve");
 		System.out.println(myQueue.size() +" "  + myQueue);
 		
 		System.out.println("Dequeue Operation : " + myQueue.dequeue());
