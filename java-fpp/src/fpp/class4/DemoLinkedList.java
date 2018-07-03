@@ -96,8 +96,41 @@ public class DemoLinkedList {
 	// attempts to remove the first Node that contains
 	// data; if successful, returns true; otherwise, false.
 	public boolean removeFirst(String data) {
-		// implement
-		return false;
+
+		//implement
+				Node temp = header;
+				
+				if(isEmpty())
+				{	
+					return false;
+				}else {
+					while (temp.next!=null) {
+						if(temp.value==data) {
+							break;
+						}
+						else {
+							temp= temp.next;		
+						}
+					}
+					
+					if(temp.previous.previous==null) 
+					{
+						temp.next.previous=header;
+						header.next = temp.next;
+					}
+					else if (temp.next==null) {						
+						temp.previous.next=null;
+						temp.previous=null;
+					}
+					else 
+					{
+					Node next = temp.next;
+					next.previous=temp;
+					temp.previous.next=next;
+					}
+					return true;
+					
+				}		
 	}
 
 	public static void main(String[] args) {
@@ -114,6 +147,10 @@ public class DemoLinkedList {
 		listLast.addLast("Bob");
 		listLast.addLast("Harry");
 		listLast.addLast("Steve");
+		listLast.addLast("ramon");
+		listLast.addLast("teresa");
+		listLast.removeFirst("teresa");
+		System.out.println(listLast);
 		System.out.println(listLast);
 		// System.out.println(listLast.nodes());
 
