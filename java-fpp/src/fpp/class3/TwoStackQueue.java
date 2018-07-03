@@ -15,18 +15,32 @@ public class TwoStackQueue {
 	/** Retrieves and Remove: removes the element at the front/head of the queue. */
 	public String dequeue()  { // throws IllegalStateException {
 		//implement
-		
-		//stack2.push(stack1.pop());  
-		
-//		Pop all the elements from stack1 to stack2.
-		
-//		Simply pop element from stack2 
-		
-//		And then move back all the elements from the second stack2 to the first stack1.
-		
-		return "";
+		String popelement;
+		if(stack1.isEmpty())
+			return "is empty";
+		else {
+			//		Pop all the elements from stack1 to stack2.
+
+			while(!stack1.isEmpty()) {
+				String temp1 = stack1.peek();
+				stack2.push(temp1);
+				stack1.pop();
+			}
+			
+			//		Simply pop element from stack2 
+			popelement = stack2.peek();
+			stack2.pop();
+			
+			//		And then move back all the elements from the second stack2 to the first stack1.
+			while(!stack2.isEmpty()) {
+				String temp2 = stack2.peek();
+				stack1.push(temp2);
+				stack2.pop();
+			}
+		}
+		return popelement;
 	}
-	
+
 	/** Insert: adds an element to the rear/end of the queue. */
 	public void enqueue(String s) { 
 		//implement
@@ -41,14 +55,18 @@ public class TwoStackQueue {
 		else {
 			//		Pop all the elements from stack1 to stack2.
 
-			while(stack1.isEmpty()) {
-				stack2.push(stack1.pop());	
+			while(!stack1.isEmpty()) {
+				String temp1 = stack1.peek();
+				stack2.push(temp1);
+				stack1.pop();
 			}
 			//		Simply pop element from stack2 
 			String temp = stack2.peek();
 			//		And then move back all the elements from the second stack2 to the first stack1.
-			while(stack2.isEmpty()) {
-				stack1.push(stack2.pop());	
+			while(!stack2.isEmpty()) {
+				String temp2 = stack2.peek();
+				stack1.push(temp2);
+				stack2.pop();
 			}
 			return temp;
 		}
@@ -102,7 +120,7 @@ public class TwoStackQueue {
 		System.out.println(myQueue.size() +" "  + myQueue);
 		System.out.println("peek : " + myQueue.peek());
 		
-		/*System.out.println("Dequeue Operation : " + myQueue.dequeue());
+		System.out.println("Dequeue Operation : " + myQueue.dequeue());
 		System.out.println("Dequeue Operation : " + myQueue.dequeue());
 		System.out.println(myQueue.size()+" " + myQueue);
 		myQueue.enqueue("Bill");
@@ -113,7 +131,7 @@ public class TwoStackQueue {
 		System.out.println("Peek Operation : " + myQueue.peek());
 		System.out.println(myQueue.size()+" " + myQueue);
 
-*/
+
 		
 	}
 }
