@@ -1,4 +1,4 @@
-package lesson9;
+package fpp.lesson9;
 
 import java.util.NoSuchElementException;
 
@@ -91,12 +91,14 @@ public class ArrayQueueImpl {
 	}
 	public static void main (String []args) {
 		ArrayQueueImpl A = new ArrayQueueImpl();
-		System.out.println("Size of the array : "+A.size());
+		//System.out.println("Size of the array : "+A.size());
 		
-		for (int i = 1; i < 12; i++) {
+		for (int i = 1; i < 5; i++) {
 			A.enqueue(i);
 		}
 		
+		
+		/*
 		System.out.println("Size of the array : "+A.size());
 		System.out.println(A.dequeue());
 		System.out.println(A.dequeue());
@@ -108,6 +110,7 @@ public class ArrayQueueImpl {
 		
 		System.out.println("peek --> "+A.peek());
 		System.out.println("front --> "+A.front);
+		*/
 	}	
 
 }
