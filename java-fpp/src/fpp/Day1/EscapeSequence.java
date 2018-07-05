@@ -1,4 +1,4 @@
-package lesson2democode;
+package fpp.Day1;
 
 public class EscapeSequence {
 	public static void main(String args[]) {

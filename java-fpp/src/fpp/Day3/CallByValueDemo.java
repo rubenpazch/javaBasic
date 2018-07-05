@@ -1,5 +1,6 @@
 
-package Day3;
+package fpp.Day3;
+
 
 /* Memory Management - All method calls and Object references are stored in the Stack memory.
  * Once you invoke a method,it will be stored in the stack. 

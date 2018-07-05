@@ -24,17 +24,42 @@ public class Employee {
 		return name;
 	}
 	public double getSalary() {
-		return salary;
+		return salary; 
 	}
-	public final boolean equals(Object o){
-		if(o==null) return false;
-		if(o.getClass() != this.getClass()) {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((hireDate == null) ? 0 : hireDate.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(salary);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		}
-		Employee e = (Employee)o;
-		return (e.getName().equals(name)&& 
-				e.getHireDate().equals(hireDate) &&
-				e.getSalary()== salary);
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (hireDate == null) {
+			if (other.hireDate != null)
+				return false;
+		} else if (!hireDate.equals(other.hireDate))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
+			return false;
+		return true;
 	}
 	//implement
 	//public int hashCode(){

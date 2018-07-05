@@ -1,4 +1,4 @@
-package lesson3democode;
+package fpp.Day3;
 
 import java.util.*; // for GregorianCalendar
 import java.text.*; // for DateFormat Class

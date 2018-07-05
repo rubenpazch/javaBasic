@@ -1,7 +1,7 @@
 package fpp.class5;
 
 import java.util.*;
-
+ 
 public class Address {
 	private String name;
 	private String street;

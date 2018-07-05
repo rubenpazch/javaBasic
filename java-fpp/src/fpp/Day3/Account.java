@@ -1,4 +1,4 @@
-package lesson3.objectdemo;
+package fpp.Day3;
 
 public class Account {
 	private String id;

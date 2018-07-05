@@ -1,4 +1,4 @@
-package lesson3democode;
+package fpp.Day3;
 
 class Area
 {

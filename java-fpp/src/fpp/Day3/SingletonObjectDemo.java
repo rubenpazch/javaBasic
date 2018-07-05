@@ -1,4 +1,4 @@
-package Day3;
+package fpp.Day3;
 
 class SingletonClass {
 	// static SingletonClass singletonObject;

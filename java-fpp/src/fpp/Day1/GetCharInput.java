@@ -1,4 +1,4 @@
-package lesson2democode;
+package fpp.Day1;
 
 import java.io.IOException;
 import java.util.Scanner;

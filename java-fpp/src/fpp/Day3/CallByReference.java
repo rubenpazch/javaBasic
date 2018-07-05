@@ -1,4 +1,4 @@
-package Day3;
+package fpp.Day3;
 
 class Test2 {
 	int a, b;
