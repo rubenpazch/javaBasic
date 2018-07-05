@@ -18,18 +18,19 @@ public class Main {
 		listOfAddresses.add(new Address("Hal", "14 E. Court", "Fairfield", "IA", "52556"));
 		listOfAddresses.add(new Address("Sally", "410 W. Jefferson", "Fairfield", "IA", "52556"));
 		listOfAddresses.add(new Address("MUM", "1000 N. 4th St", "Fairfield", "IA", "52556"));
-		
+		 
 
 	}
 	
 	public void printAsUpperCase() {
-		
-		//implement
+		for (Address address : listOfAddresses) {
+			System.out.println(formatFields(address.toUpper()));
+		} 
 	}
 	
 	private String formatFields(List<String> list) {
 		//implement
-		return null;
+		return list.get(0)+"\n"+list.get(1)+"\n"+list.get(2)+", "+list.get(3)+" "+list.get(4)+"\n";
 	}
 	
 	

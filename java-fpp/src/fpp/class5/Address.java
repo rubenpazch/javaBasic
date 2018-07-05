@@ -61,7 +61,16 @@ public class Address {
 	/** Converts address fields to upper case, returns as list */
 	//implement
 	public List<String> toUpper() {
-		return null;
+		return new ArrayList<String>() {
+			{
+				add(name.toUpperCase());
+				add(street.toUpperCase());
+				add(city.toUpperCase());
+				add(state.toUpperCase());
+				add(zip.toUpperCase());
+			}
+		};
+		
 	}
 	
 }
