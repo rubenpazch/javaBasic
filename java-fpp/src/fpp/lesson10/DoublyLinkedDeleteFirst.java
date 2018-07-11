@@ -1,4 +1,4 @@
-package lesson10;
+package fpp.lesson10;
 
 public class DoublyLinkedDeleteFirst {
 	
@@ -9,26 +9,48 @@ public class DoublyLinkedDeleteFirst {
 	}	
 	//removes the node at position 1 and returns
 	//the string contained in that node
-	public String deleteFirst() {
+	public String deleteFirst() {		
 		//implement
-		return null;
+		String 	removed="";
+		if(isEmpty()){
+			return "is mepty";	
+		}else if(header.next.next==null){
+			return "is mepty";	
+		}
+		else {
+			if(header.next.next.next==null)
+			{
+				Node temp = header.next.next;
+				removed=temp.value;
+				header.next.next =null;
+			}
+			else {
+				Node temp = header.next.next.next;
+				removed=temp.value;
+				temp.previous=header.next;
+				header.next.next = temp;	
+			}
+		}
+		return removed;
 	}
-	
+
 	public boolean isEmpty() {
-		//implement
-		return true;
-	}
+		if (header.next==null)
+			return true;
+		else 
+			return false;	
+	}	
 
 	// adds to the end of the list
 	public void addLast(String item) {
-		Node next = header;
-		while (next.next != null) {
-			next = next.next;
+		Node current= header;
+		while (current.next != null) {
+			current = current.next;
 		}
 		Node n = new Node();
 		n.value = item;
-		next.next = n;
-		n.previous = next;
+		current.next = n;
+		n.previous = current;
 
 	}
 
@@ -64,8 +86,23 @@ public class DoublyLinkedDeleteFirst {
 		list.addLast("Bob");
 		list.addLast("Harry");
 		list.addLast("Steve");
+		list.addLast("pedro");
+		System.out.println(list);
 		String deleted = list.deleteFirst();
 		System.out.println("This item was deleted: " + deleted);
+		
+		System.out.println(list);
+		String deleted1 = list.deleteFirst();
+		System.out.println("This item was deleted: " + deleted1);
+		
+		System.out.println(list);
+		String deleted2 = list.deleteFirst();
+		System.out.println("This item was deleted: " + deleted2);
+		
+		System.out.println(list);
+		String deleted3 = list.deleteFirst();
+		System.out.println("This item was deleted: " + deleted3);
+		
 		System.out.println(list);
 
 	}

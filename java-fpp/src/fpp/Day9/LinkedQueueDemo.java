@@ -1,4 +1,4 @@
-package Day9;
+package fpp.Day9;
 class LinkedQueue
 {
 	class Node
@@ -9,7 +9,7 @@ class LinkedQueue
 		// constructor
 		{ 
 			data = item; 
-		}
+		} 
 	}
 	Node front, rear;
 	int count;
